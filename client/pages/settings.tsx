@@ -4,7 +4,7 @@ import React from "react";
 import SettingsDeleteAccount from "../components/Settings/SettingsDeleteAccount";
 import SettingsChangeEmail from "../components/Settings/SettingsChangeEmail";
 import SettingsPassword from "../components/Settings/SettingsPassword";
-import SettingsDomain from "../components/Settings/SettingsDomain";
+
 import SettingsApi from "../components/Settings/SettingsApi";
 import AppWrapper from "../components/AppWrapper";
 import { H1, Span } from "../components/Text";
