@@ -58,11 +58,11 @@ const Header: FC = () => {
       <Link href="/login">
         <ALink
           href="/login"
-          title={!DISALLOW_REGISTRATION ? "login / signup" : "login"}
+          title={!DISALLOW_REGISTRATION ? "Logar / Cadastre-se" : "login"}
           forButton
         >
           <Button height={[32, 40]}>
-            {!DISALLOW_REGISTRATION ? "Log in / Sign up" : "Log in"}
+            {!DISALLOW_REGISTRATION ? "Logar / Cadastre-se" : "Log in"}
           </Button>
         </ALink>
       </Link>
@@ -71,7 +71,7 @@ const Header: FC = () => {
   const logout = isAuthenticated && (
     <Li>
       <Link href="/logout">
-        <ALink href="/logout" title="logout" fontSize={[14, 16]}>
+        <ALink href="/logout" title="sair" fontSize={[14, 16]}>
           Log out
         </ALink>
       </Link>
@@ -80,7 +80,7 @@ const Header: FC = () => {
   const settings = isAuthenticated && (
     <Li>
       <Link href="/settings">
-        <ALink href="/settings" title="Settings" forButton>
+        <ALink href="/settings" title="Configurações" forButton>
           <Button height={[32, 40]}>Settings</Button>
         </ALink>
       </Link>
@@ -104,7 +104,7 @@ const Header: FC = () => {
         <LogoImage>
           <a
             href="/"
-            title="Homepage"
+            title="Início"
             onClick={e => {
               e.preventDefault();
               if (window.location.pathname !== "/") Router.push("/");
@@ -125,20 +125,9 @@ const Header: FC = () => {
             p={0}
           >
             <Li>
-              <ALink
-                href="//github.com/thedevs-network/kutt"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="GitHub"
-                fontSize={[14, 16]}
-              >
-                GitHub
-              </ALink>
-            </Li>
-            <Li>
               <Link href="/report">
-                <ALink href="/report" title="Report abuse" fontSize={[14, 16]}>
-                  Report
+                <ALink href="/report" title="Reportar abuso" fontSize={[14, 16]}>
+                  Reportar
                 </ALink>
               </Link>
             </Li>
