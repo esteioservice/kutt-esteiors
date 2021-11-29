@@ -438,11 +438,11 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
               onClick={onEdit}
             >
               <Icon
-                name={editLoading ? "spinner" : "Atualizar"}
+                name={editLoading ? "spinner" : "refresh"}
                 stroke="white"
                 mr={2}
               />
-              {editLoading ? "Updating..." : "Atualizar"}
+              {editLoading ? "Updating..." : "Update"}
             </Button>
             {editMessage.text && (
               <Text mt={3} fontSize={15} color={editMessage.color}>

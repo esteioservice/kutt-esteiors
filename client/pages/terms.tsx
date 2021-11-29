@@ -38,7 +38,7 @@ const TermsPage = () => (
       </p>
       <p>
         Os materiais que aparecem em {publicRuntimeConfig.SITE_NAME} website poderia
-        incluem erros técnicos, tipográficos ou fotográficos." "}
+        incluem erros técnicos, tipográficos ou fotográficos.{" "}
         {publicRuntimeConfig.SITE_NAME} não garante que qualquer um dos
         os materiais em seu site são precisos, completos ou atuais.{" "}
         {publicRuntimeConfig.SITE_NAME} pode fazer alterações nos materiais

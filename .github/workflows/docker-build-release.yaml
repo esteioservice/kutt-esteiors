@@ -1,7 +1,7 @@
 name: docker-build-latest
 
 env:
-  dockerhub_repository: "kutt/kutt"
+  dockerhub_repository: "esteioservice/kutt-esteiors"
 
 on:
   release:
@@ -10,6 +10,7 @@ on:
 jobs:
   dockerhub-build-push:
     runs-on: ubuntu-latest
+    environment: DOCKER_HUB
     steps:
       -
         name: Checkout
