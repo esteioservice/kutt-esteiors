@@ -53,10 +53,10 @@ const SettingsDeleteAccount: FC = () => {
   return (
     <Col alignItems="flex-start" maxWidth="100%">
       <H2 mb={4} bold>
-        Delete account
+        Apagar conta
       </H2>
       <Text mb={4}>
-        Delete your account from {publicRuntimeConfig.SITE_NAME}.
+        Exclua a sua conta de {publicRuntimeConfig.SITE_NAME}.
       </Text>
       <Text
         {...label("password")}
@@ -65,12 +65,12 @@ const SettingsDeleteAccount: FC = () => {
         fontSize={[15, 16]}
         bold
       >
-        Password:
+        Senha:
       </Text>
       <RowCenterV as="form" onSubmit={onSubmit}>
         <TextInput
           {...password("accpass")}
-          placeholder="Password..."
+          placeholder="Senha..."
           autocomplete="off"
           mr={3}
         />
@@ -86,11 +86,11 @@ const SettingsDeleteAccount: FC = () => {
       >
         <>
           <H2 mb={24} textAlign="center" bold>
-            Delete account?
+            Apagar conta?
           </H2>
           <Text textAlign="center">
-            All of your data including your <Span bold>LINKS</Span> and{" "}
-            <Span bold>STATS</Span> will be deleted.
+            Todos os seus dados, incluindo o seu <Span bold>LINKS</Span> and{" "}
+            <Span bold>STATS</Span> será apagado.
           </Text>
           <RowCenterH mt={44}>
             {loading ? (
@@ -108,7 +108,7 @@ const SettingsDeleteAccount: FC = () => {
                 </Button>
                 <Button color="red" ml={3} onClick={onDelete}>
                   <Icon name="trash" stroke="white" mr={2} />
-                  Delete
+                  Apagar
                 </Button>
               </>
             )}
