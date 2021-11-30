@@ -40,7 +40,7 @@ const ReportPage = () => {
     <AppWrapper>
       <Col width={600} maxWidth="97%" alignItems="flex-start">
         <H2 my={3} bold>
-          Report abuse
+          Reportar abuso
         </H2>
         <Text mb={3}>
           Denuncie abusos, malware e links de phishing para o endereço de e-mail abaixo
