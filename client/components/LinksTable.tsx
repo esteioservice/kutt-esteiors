@@ -611,7 +611,7 @@ const LinksTable: FC = () => {
   return (
     <Col width={1200} maxWidth="95%" margin="40px 0 120px" my={6}>
       <H2 mb={3} light>
-        Recent shortened links.
+        Links encurtados recentes.
       </H2>
       <Table scrollWidth="800px">
         <thead>
@@ -620,7 +620,7 @@ const LinksTable: FC = () => {
               <Flex as="form" onSubmit={onSubmit}>
                 <TextInput
                   {...text("search")}
-                  placeholder="Search..."
+                  placeholder="Procurar..."
                   height={[30, 32]}
                   placeholderSize={[13, 13, 13, 13]}
                   fontSize={[14]}
@@ -650,7 +650,7 @@ const LinksTable: FC = () => {
             <Th {...ogLinkFlex}>URL Original</Th>
             <Th {...createdFlex}>Criado</Th>
             <Th {...shortLinkFlex}>URL Curta</Th>
-            <Th {...viewsFlex}>Visualização</Th>
+            <Th {...viewsFlex}>Cliques</Th>
             <Th {...actionsFlex}></Th>
           </Tr>
         </thead>
