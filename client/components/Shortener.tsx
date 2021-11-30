@@ -132,7 +132,7 @@ const Shortener = () => {
     <H1 fontSize={[25, 27, 32]} light>
       encurtador de links{" "}
       <Span style={{ borderBottom: "2px dotted #999" }} light>
-        Escoteiros RS
+        Escoteiros.RS
       </Span>
       .
     </H1>
@@ -308,7 +308,7 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Password:
+                Senha:
               </Text>
               <TextInput
                 {...password("password")}
@@ -333,7 +333,7 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Expire in:
+                Expiração:
               </Text>
               <TextInput
                 {...text("expire_in")}
@@ -356,7 +356,7 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Description:
+                Descrição:
               </Text>
               <TextInput
                 {...text("description")}
