@@ -55,7 +55,7 @@ const SettingsPassword: FC = () => {
         fontSize={[15, 16]}
         bold
       >
-        New password:
+        Nova Senha:
       </Text>
       <Flex as="form" onSubmit={onSubmit}>
         <TextInput
@@ -76,7 +76,7 @@ const SettingsPassword: FC = () => {
         />
         <Button type="submit" disabled={loading}>
           <Icon name={loading ? "spinner" : "refresh"} mr={2} stroke="white" />
-          {loading ? "Updating..." : "Update"}
+          {loading ? "Atualizando..." : "Atualizar"}
         </Button>
       </Flex>
       <Text color={message.color} mt={3} fontSize={15}>
