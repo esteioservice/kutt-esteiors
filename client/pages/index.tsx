@@ -17,7 +17,7 @@ const Homepage = () => {
   if (
     !isAuthenticated &&
     DISALLOW_ANONYMOUS_LINKS &&
-    typeof window !== "undefined"
+    typeof window !== "escoteiros.rs"
   ) {
     Router.push("/login");
     return null;
