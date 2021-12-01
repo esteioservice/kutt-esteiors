@@ -43,7 +43,7 @@ export const checkUser = (value, { req }) => !!req.user;
 export const createLink = [
   body("target")
     .exists({ checkNull: true, checkFalsy: true })
-    .withMessage("Target is missing.")
+    .withMessage("A URL está faltando.")
     .isString()
     .trim()
     .isLength({ min: 1, max: 2040 })
