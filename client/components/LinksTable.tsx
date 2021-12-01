@@ -201,7 +201,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
           <Text>{formatDistanceToNow(new Date(link.created_at))} atrás</Text>
           {link.expire_in && (
             <Text fontSize={[13, 14]} color="#888">
-              Expires in{" "}
+              Expira em{" "}
               {ms(
                 differenceInMilliseconds(new Date(link.expire_in), new Date()),
                 {
@@ -249,7 +249,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
           {link.password && (
             <>
               <Tooltip id={`${index}-tooltip-password`}>
-                Password protected
+                Senha de proteção
               </Tooltip>
               <Action
                 as="span"
@@ -264,7 +264,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
           )}
           {link.banned && (
             <>
-              <Tooltip id={`${index}-tooltip-banned`}>Banned</Tooltip>
+              <Tooltip id={`${index}-tooltip-banned`}>Banido</Tooltip>
               <Action
                 as="span"
                 data-tip
@@ -339,7 +339,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Target:
+                  Endereço:
                 </Text>
                 <Flex as="form">
                   <TextInput
@@ -389,7 +389,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Description:
+                  Descrição:
                 </Text>
                 <Flex as="form">
                   <TextInput
@@ -413,7 +413,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Expire in:
+                  Expira em:
                 </Text>
                 <Flex as="form">
                   <TextInput
@@ -442,7 +442,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                 stroke="white"
                 mr={2}
               />
-              {editLoading ? "Updating..." : "Update"}
+              {editLoading ? "Atualizando..." : "Atualizar"}
             </Button>
             {editMessage.text && (
               <Text mt={3} fontSize={15} color={editMessage.color}>
@@ -493,11 +493,11 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
             ) : (
               <>
                 <Button color="gray" mr={3} onClick={() => setBanModal(false)}>
-                  Cancel
+                  Cancelar
                 </Button>
                 <Button color="red" ml={3} onClick={onBan}>
                   <Icon name="stop" stroke="white" mr={2} />
-                  Ban
+                  Banir
                 </Button>
               </>
             )}
