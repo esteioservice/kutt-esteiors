@@ -58,7 +58,7 @@ export const verification = async (user: User) => {
   });
 
   if (!mail.accepted.length) {
-    throw new CustomError("Couldn't send verification email. Try again later.");
+    throw new CustomError("Não foi possível enviar e-mail de verificação. Tente mais tarde.");
   }
 };
 
@@ -78,7 +78,7 @@ export const changeEmail = async (user: User) => {
   });
 
   if (!mail.accepted.length) {
-    throw new CustomError("Couldn't send verification email. Try again later.");
+    throw new CustomError("Não foi possível enviar e-mail de verificação. Tente mais tarde.");
   }
 };
 
@@ -86,7 +86,7 @@ export const resetPasswordToken = async (user: User) => {
   const mail = await transporter.sendMail({
     from: env.MAIL_FROM || env.MAIL_USER,
     to: user.email,
-    subject: "Reset your password",
+    subject: "Redefina sua senha",
     text: resetMailText
       .replace(/{{resetpassword}}/gm, user.reset_password_token)
       .replace(/{{domain}}/gm, env.DEFAULT_DOMAIN),
@@ -97,7 +97,7 @@ export const resetPasswordToken = async (user: User) => {
 
   if (!mail.accepted.length) {
     throw new CustomError(
-      "Couldn't send reset password email. Try again later."
+      "Não foi possível enviar e-mail de redefinição de senha. Tente mais tarde."
     );
   }
 };
