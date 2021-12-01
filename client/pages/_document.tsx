@@ -32,7 +32,7 @@ class AppDocument extends Document<Props> {
           />
           <meta
             name="description"
-            content={`${publicRuntimeConfig.SITE_NAME} is a free and open source URL shortener with custom domains and stats.`}
+            content={`${publicRuntimeConfig.SITE_NAME} é um encurtador de URL gratuito e estatísticas.`}
           />
           <link
             href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
@@ -59,7 +59,7 @@ class AppDocument extends Document<Props> {
           />
           <meta
             property="og:description"
-            content="Free & Open Source Modern URL Shortener"
+            content="Encurtador de URL moderno gratuito"
           />
           <meta
             name="twitter:url"
@@ -68,7 +68,7 @@ class AppDocument extends Document<Props> {
           <meta name="twitter:title" content={publicRuntimeConfig.SITE_NAME} />
           <meta
             name="twitter:description"
-            content="Free & Open Source Modern URL Shortener"
+            content="Encurtador de URL moderno gratuito"
           />
           <meta
             name="twitter:image"
