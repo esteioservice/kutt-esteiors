@@ -30,14 +30,14 @@ const authenticate = (
 
       if (user && isStrict && !user.verified) {
         throw new CustomError(
-          "Your email address is not verified. " +
-            "Click on signup to get the verification link again.",
+          "Seu endereço de e-mail não foi verificado. " +
+            "Clique em inscrição para obter o link de verificação novamente.",
           400
         );
       }
 
       if (user && user.banned) {
-        throw new CustomError("You're banned from using this website.", 403);
+        throw new CustomError("Você está proibido de usar este site.", 403);
       }
 
       if (user) {
@@ -56,7 +56,7 @@ export const jwt = authenticate("jwt", "Unauthorized.");
 export const jwtLoose = authenticate("jwt", "Unauthorized.", false);
 export const apikey = authenticate(
   "localapikey",
-  "API key is not correct.",
+  "API key não é correto.",
   false
 );
 
@@ -122,7 +122,7 @@ export const signup: Handler = async (req, res) => {
 
   await mail.verification(user);
 
-  return res.status(201).send({ message: "Verification email has been sent." });
+  return res.status(201).send({ message: "O e-mail de verificação foi enviado." });
 };
 
 export const token: Handler = async (req, res) => {
@@ -160,12 +160,12 @@ export const changePassword: Handler = async (req, res) => {
   const [user] = await query.user.update({ id: req.user.id }, { password });
 
   if (!user) {
-    throw new CustomError("Couldn't change the password. Try again later.");
+    throw new CustomError("Não foi possível alterar a senha. Tente mais tarde.");
   }
 
   return res
     .status(200)
-    .send({ message: "Your password has been changed successfully." });
+    .send({ message: "Sua senha foi alterada com sucesso." });
 };
 
 export const generateApiKey: Handler = async (req, res) => {
@@ -176,7 +176,7 @@ export const generateApiKey: Handler = async (req, res) => {
   const [user] = await query.user.update({ id: req.user.id }, { apikey });
 
   if (!user) {
-    throw new CustomError("Couldn't generate API key. Please try again later.");
+    throw new CustomError("Não foi possível gerar a chave API. Por favor, tente novamente mais tarde.");
   }
 
   return res.status(201).send({ apikey });
@@ -196,7 +196,7 @@ export const resetPasswordRequest: Handler = async (req, res) => {
   }
 
   return res.status(200).send({
-    message: "If email address exists, a reset password email has been sent."
+    message: "Se houver um e-mail de redefinição de senha foi enviado."
   });
 };
 
@@ -222,7 +222,7 @@ export const resetPassword: Handler = async (req, res, next) => {
 
 export const signupAccess: Handler = (req, res, next) => {
   if (!env.DISALLOW_REGISTRATION) return next();
-  return res.status(403).send({ message: "Registration is not allowed." });
+  return res.status(403).send({ message: "O registro não é permitido." });
 };
 
 export const changeEmailRequest: Handler = async (req, res) => {
@@ -231,13 +231,13 @@ export const changeEmailRequest: Handler = async (req, res) => {
   const isMatch = await bcrypt.compare(password, req.user.password);
 
   if (!isMatch) {
-    throw new CustomError("Password is wrong.", 400);
+    throw new CustomError("Senha está errada.", 400);
   }
 
   const currentUser = await query.user.find({ email });
 
   if (currentUser) {
-    throw new CustomError("Can't use this email address.", 400);
+    throw new CustomError("Não é possível usar este endereço de e-mail.", 400);
   }
 
   const [updatedUser] = await query.user.update(
@@ -257,8 +257,8 @@ export const changeEmailRequest: Handler = async (req, res) => {
 
   return res.status(200).send({
     message:
-      "If email address exists, an email " +
-      "with a verification link has been sent."
+      "Se houver endereço de e-mail" +
+      "com um link de verificação foi enviado."
   });
 };
 
