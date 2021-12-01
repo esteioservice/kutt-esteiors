@@ -28,7 +28,7 @@ const ProtectedPage: NextPage<Props> = () => {
     const { password } = formState.values;
 
     if (!password) {
-      return setError("Password must not be empty.");
+      return setError("A senha não deve estar em branco.");
     }
 
     setError("");
@@ -51,14 +51,14 @@ const ProtectedPage: NextPage<Props> = () => {
     <AppWrapper>
       {!router.query.id ? (
         <H2 my={4} light>
-          404 | Link could not be found.
+          404 | Link não encontrado.
         </H2>
       ) : (
         <Col width={500} maxWidth="97%">
           <H2 my={3} bold>
             Protected link
           </H2>
-          <Text mb={4}>Enter the password to be redirected to the link.</Text>
+          <Text mb={4}>Digite a senha para ser redirecionado ao link.</Text>
           <Flex
             as="form"
             alignItems="center"
@@ -67,7 +67,7 @@ const ProtectedPage: NextPage<Props> = () => {
           >
             <TextInput
               {...password("password")}
-              placeholder="Password"
+              placeholder="Senha"
               autocomplete="off"
               height={[44, 54]}
               width={[1, 1 / 2]}
