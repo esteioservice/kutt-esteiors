@@ -70,7 +70,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
 
   const total = stats && stats.views.reduce((sum, view) => sum + view, 0);
   const periodText = period.includes("last")
-    ? `the last ${period.replace("last", "").toLocaleLowerCase()}`
+    ? `último ${period.replace("last", "").toLocaleLowerCase()}`
     : "all time";
 
   return (
