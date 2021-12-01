@@ -47,47 +47,47 @@ export const createLink = [
     .isString()
     .trim()
     .isLength({ min: 1, max: 2040 })
-    .withMessage("Maximum URL length is 2040.")
+    .withMessage("O comprimento máximo do URL é 2.040.")
     .customSanitizer(addProtocol)
     .custom(
       value =>
         urlRegex({ exact: true, strict: false }).test(value) ||
         /^(?!https?)(\w+):\/\//.test(value)
     )
-    .withMessage("URL is not valid.")
+    .withMessage("URL não válida.")
     .custom(value => removeWww(URL.parse(value).host) !== env.DEFAULT_DOMAIN)
     .withMessage(`${env.DEFAULT_DOMAIN} URLs are not allowed.`),
   body("password")
     .optional({ nullable: true, checkFalsy: true })
     .custom(checkUser)
-    .withMessage("Only users can use this field.")
+    .withMessage("Apenas usuários podem usar este campo.")
     .isString()
     .isLength({ min: 3, max: 64 })
-    .withMessage("Password length must be between 3 and 64."),
+    .withMessage("O comprimento da senha deve estar entre 3 e 64."),
   body("customurl")
     .optional({ nullable: true, checkFalsy: true })
     .custom(checkUser)
-    .withMessage("Only users can use this field.")
+    .withMessage("Apenas usuários podem usar este campo.")
     .isString()
     .trim()
     .isLength({ min: 1, max: 64 })
-    .withMessage("Custom URL length must be between 1 and 64.")
+    .withMessage("O comprimento do URL personalizado deve estar entre 1 e 64.")
     .custom(value => /^[a-zA-Z0-9-_]+$/g.test(value))
-    .withMessage("Custom URL is not valid")
+    .withMessage("URL personalizado não é válido")
     .custom(value => !preservedUrls.some(url => url.toLowerCase() === value))
-    .withMessage("You can't use this custom URL."),
+    .withMessage("Você não pode usar este URL personalizado."),
   body("reuse")
     .optional({ nullable: true })
     .custom(checkUser)
-    .withMessage("Only users can use this field.")
+    .withMessage("Apenas usuários podem usar este campo.")
     .isBoolean()
-    .withMessage("Reuse must be boolean."),
+    .withMessage("Reutilizar deve ser booleano."),
   body("description")
     .optional({ nullable: true, checkFalsy: true })
     .isString()
     .trim()
     .isLength({ min: 0, max: 2040 })
-    .withMessage("Description length must be between 0 and 2040."),
+    .withMessage("O comprimento da descrição deve estar entre 0 e 2040."),
   body("expire_in")
     .optional({ nullable: true, checkFalsy: true })
     .isString()
@@ -99,17 +99,17 @@ export const createLink = [
         return false;
       }
     })
-    .withMessage("Expire format is invalid. Valid examples: 1m, 8h, 42 days.")
+    .withMessage("O formato de expiração é inválido. Exemplos válidos: 1m, 8h, 30d.")
     .customSanitizer(ms)
     .custom(value => value >= ms("1m"))
-    .withMessage("Minimum expire time should be '1 minute'.")
+    .withMessage("Minimum expire time should be '1 minuto'.")
     .customSanitizer(value => addMilliseconds(new Date(), value).toISOString()),
   body("domain")
     .optional({ nullable: true, checkFalsy: true })
     .custom(checkUser)
-    .withMessage("Only users can use this field.")
+    .withMessage("Apenas usuários podem usar este campo.")
     .isString()
-    .withMessage("Domain should be string.")
+    .withMessage("Domínio deve ser.")
     .customSanitizer(value => value.toLowerCase())
     .customSanitizer(value => removeWww(URL.parse(value).hostname || value))
     .custom(async (address, { req }) => {
@@ -126,7 +126,7 @@ export const createLink = [
 
       if (!domain) return Promise.reject();
     })
-    .withMessage("You can't use this domain.")
+    .withMessage("Você não pode usar este domínio.")
 ];
 
 export const editLink = [
@@ -135,26 +135,26 @@ export const editLink = [
     .isString()
     .trim()
     .isLength({ min: 1, max: 2040 })
-    .withMessage("Maximum URL length is 2040.")
+    .withMessage("O comprimento máximo do URL é 2.040.")
     .customSanitizer(addProtocol)
     .custom(
       value =>
         urlRegex({ exact: true, strict: false }).test(value) ||
         /^(?!https?)(\w+):\/\//.test(value)
     )
-    .withMessage("URL is not valid.")
+    .withMessage("URL não válida.")
     .custom(value => removeWww(URL.parse(value).host) !== env.DEFAULT_DOMAIN)
-    .withMessage(`${env.DEFAULT_DOMAIN} URLs are not allowed.`),
+    .withMessage(`${env.DEFAULT_DOMAIN} URLs não são permitidos.`),
   body("address")
     .optional({ checkFalsy: true, nullable: true })
     .isString()
     .trim()
     .isLength({ min: 1, max: 64 })
-    .withMessage("Custom URL length must be between 1 and 64.")
+    .withMessage("O comprimento do URL personalizado deve estar entre 1 e 64.")
     .custom(value => /^[a-zA-Z0-9-_]+$/g.test(value))
-    .withMessage("Custom URL is not valid")
+    .withMessage("URL personalizado não é válido")
     .custom(value => !preservedUrls.some(url => url.toLowerCase() === value))
-    .withMessage("You can't use this custom URL."),
+    .withMessage("Você não pode usar este URL personalizado."),
   body("expire_in")
     .optional({ nullable: true, checkFalsy: true })
     .isString()
@@ -166,18 +166,18 @@ export const editLink = [
         return false;
       }
     })
-    .withMessage("Expire format is invalid. Valid examples: 1m, 8h, 42 days.")
+    .withMessage("O formato de expiração é inválido. Exemplos válidos: 1m, 8h, 42d.")
     .customSanitizer(ms)
     .custom(value => value >= ms("1m"))
-    .withMessage("Minimum expire time should be '1 minute'.")
+    .withMessage("Minimum expire time should be '1 minuto'.")
     .customSanitizer(value => addMilliseconds(new Date(), value).toISOString()),
   body("description")
     .optional({ nullable: true, checkFalsy: true })
     .isString()
     .trim()
     .isLength({ min: 0, max: 2040 })
-    .withMessage("Description length must be between 0 and 2040."),
-  param("id", "ID is invalid.")
+    .withMessage("O comprimento da descrição deve estar entre 0 e 2040."),
+  param("id", "ID é inválido.")
     .exists({ checkFalsy: true, checkNull: true })
     .isLength({ min: 36, max: 36 })
 ];
@@ -187,17 +187,17 @@ export const redirectProtected = [
     .exists({ checkFalsy: true, checkNull: true })
     .isString()
     .isLength({ min: 3, max: 64 })
-    .withMessage("Password length must be between 3 and 64."),
-  param("id", "ID is invalid.")
+    .withMessage("O comprimento da senha deve estar entre 3 e 64."),
+  param("id", "ID é inválido.")
     .exists({ checkFalsy: true, checkNull: true })
     .isLength({ min: 36, max: 36 })
 ];
 
 export const addDomain = [
-  body("address", "Domain is not valid")
+  body("address", "Domínio não é válido")
     .exists({ checkFalsy: true, checkNull: true })
     .isLength({ min: 3, max: 64 })
-    .withMessage("Domain length must be between 3 and 64.")
+    .withMessage("O comprimento do domínio deve estar entre 3 e 64.")
     .trim()
     .customSanitizer(value => {
       const parsed = URL.parse(value);
@@ -205,21 +205,21 @@ export const addDomain = [
     })
     .custom(value => urlRegex({ exact: true, strict: false }).test(value))
     .custom(value => value !== env.DEFAULT_DOMAIN)
-    .withMessage("You can't use the default domain.")
+    .withMessage("Você não pode usar o domínio padrão.")
     .custom(async value => {
       const domain = await query.domain.find({ address: value });
       if (domain?.user_id || domain?.banned) return Promise.reject();
     })
-    .withMessage("You can't add this domain."),
+    .withMessage("Você não pode adicionar este domínio."),
   body("homepage")
     .optional({ checkFalsy: true, nullable: true })
     .customSanitizer(addProtocol)
     .custom(value => urlRegex({ exact: true, strict: false }).test(value))
-    .withMessage("Homepage is not valid.")
+    .withMessage("A página inicial não é válida.")
 ];
 
 export const removeDomain = [
-  param("id", "ID is invalid.")
+  param("id", "ID é inválido.")
     .exists({
       checkFalsy: true,
       checkNull: true
@@ -228,7 +228,7 @@ export const removeDomain = [
 ];
 
 export const deleteLink = [
-  param("id", "ID is invalid.")
+  param("id", "ID é invalido.")
     .exists({
       checkFalsy: true,
       checkNull: true
@@ -237,7 +237,7 @@ export const deleteLink = [
 ];
 
 export const reportLink = [
-  body("link", "No link has been provided.")
+  body("link", "Nenhum link foi fornecido.")
     .exists({
       checkFalsy: true,
       checkNull: true
@@ -246,32 +246,32 @@ export const reportLink = [
     .custom(
       value => removeWww(URL.parse(value).hostname) === env.DEFAULT_DOMAIN
     )
-    .withMessage(`You can only report a ${env.DEFAULT_DOMAIN} link.`)
+    .withMessage(`Você só pode denunciar um ${env.DEFAULT_DOMAIN} link.`)
 ];
 
 export const banLink = [
-  param("id", "ID is invalid.")
+  param("id", "ID é inválido.")
     .exists({
       checkFalsy: true,
       checkNull: true
     })
     .isLength({ min: 36, max: 36 }),
-  body("host", '"host" should be a boolean.')
+  body("host", '"host" deveria ser um booleano.')
     .optional({
       nullable: true
     })
     .isBoolean(),
-  body("user", '"user" should be a boolean.')
+  body("user", '"user" deveria ser um booleano.')
     .optional({
       nullable: true
     })
     .isBoolean(),
-  body("userlinks", '"userlinks" should be a boolean.')
+  body("userlinks", '"userlinks" deveria ser um booleano.')
     .optional({
       nullable: true
     })
     .isBoolean(),
-  body("domain", '"domain" should be a boolean.')
+  body("domain", '"domain" deveria ser um booleano.')
     .optional({
       nullable: true
     })
@@ -279,7 +279,7 @@ export const banLink = [
 ];
 
 export const getStats = [
-  param("id", "ID is invalid.")
+  param("id", "ID é invalido.")
     .exists({
       checkFalsy: true,
       checkNull: true
@@ -288,16 +288,16 @@ export const getStats = [
 ];
 
 export const signup = [
-  body("password", "Password is not valid.")
+  body("password", "Senha não é válida.")
     .exists({ checkFalsy: true, checkNull: true })
     .isLength({ min: 8, max: 64 })
-    .withMessage("Password length must be between 8 and 64."),
-  body("email", "Email is not valid.")
+    .withMessage("O comprimento da senha deve ser entre 8 e 64."),
+  body("email", "E-mail não é válido.")
     .exists({ checkFalsy: true, checkNull: true })
     .trim()
     .isEmail()
     .isLength({ min: 0, max: 255 })
-    .withMessage("Email length must be max 255.")
+    .withMessage("O comprimento do e-mail deve ser de no máximo 255.")
     .custom(async (value, { req }) => {
       const user = await query.user.find({ email: value });
 
@@ -307,53 +307,53 @@ export const signup = [
 
       if (user?.verified) return Promise.reject();
     })
-    .withMessage("You can't use this email address.")
+    .withMessage("Você não pode usar este endereço de e-mail.")
 ];
 
 export const login = [
-  body("password", "Password is not valid.")
+  body("password", "Senha não é válida.")
     .exists({ checkFalsy: true, checkNull: true })
     .isLength({ min: 8, max: 64 })
-    .withMessage("Password length must be between 8 and 64."),
-  body("email", "Email is not valid.")
+    .withMessage("O comprimento da senha deve ser entre 8 e 64."),
+  body("email", "E-mail não é válido.")
     .exists({ checkFalsy: true, checkNull: true })
     .trim()
     .isEmail()
     .isLength({ min: 0, max: 255 })
-    .withMessage("Email length must be max 255.")
+    .withMessage("O comprimento do e-mail deve ser de no máximo 255.")
 ];
 
 export const changePassword = [
-  body("password", "Password is not valid.")
+  body("password", "Senha não é válida.")
     .exists({ checkFalsy: true, checkNull: true })
     .isLength({ min: 8, max: 64 })
-    .withMessage("Password length must be between 8 and 64.")
+    .withMessage("O comprimento da senha deve ser entre 8 e 64.")
 ];
 
 export const resetPasswordRequest = [
-  body("email", "Email is not valid.")
+  body("email", "E-mail não é válido.")
     .exists({ checkFalsy: true, checkNull: true })
     .trim()
     .isEmail()
     .isLength({ min: 0, max: 255 })
-    .withMessage("Email length must be max 255."),
-  body("password", "Password is not valid.")
+    .withMessage("O comprimento do e-mail deve ser de no máximo 255."),
+  body("password", "Senha não é válida.")
     .exists({ checkFalsy: true, checkNull: true })
     .isLength({ min: 8, max: 64 })
-    .withMessage("Password length must be between 8 and 64.")
+    .withMessage("O comprimento da senha deve ser entre 8 e 64.")
 ];
 
 export const resetEmailRequest = [
-  body("email", "Email is not valid.")
+  body("email", "E-mail não é válido.")
     .exists({ checkFalsy: true, checkNull: true })
     .trim()
     .isEmail()
     .isLength({ min: 0, max: 255 })
-    .withMessage("Email length must be max 255.")
+    .withMessage("O comprimento do e-mail deve ser de no máximo 255.")
 ];
 
 export const deleteUser = [
-  body("password", "Password is not valid.")
+  body("password", "Senha não é válida.")
     .exists({ checkFalsy: true, checkNull: true })
     .isLength({ min: 8, max: 64 })
     .custom(async (password, { req }) => {
@@ -371,7 +371,7 @@ export const cooldown = (user: User) => {
   );
 
   if (hasCooldownNow) {
-    throw new CustomError("Cooldown because of a malware URL. Wait 12h");
+    throw new CustomError("Congelado por causa de um URL de malware. Espere 12h");
   }
 };
 
@@ -418,12 +418,12 @@ export const malware = async (user: User, target: string) => {
     // Ban if too many cooldowns
     if (updatedUser.cooldowns.length > 2) {
       await query.user.update({ id: user.id }, { banned: true });
-      throw new CustomError("Too much malware requests. You are now banned.");
+      throw new CustomError("Muitos pedidos de malware. Agora você está banido.");
     }
   }
 
   throw new CustomError(
-    user ? "Malware detected! Cooldown for 12h." : "Malware detected!"
+    user ? "Malware detectado! Congelado por 12h." : "Malware detectado!"
   );
 };
 
@@ -437,7 +437,7 @@ export const linksCount = async (user?: User) => {
 
   if (count > env.USER_LIMIT_PER_DAY) {
     throw new CustomError(
-      `You have reached your daily limit (${env.USER_LIMIT_PER_DAY}). Please wait 24h.`
+      `Você atingiu seu limite diário (${env.USER_LIMIT_PER_DAY}). Por favor espere 24h.`
     );
   }
 };
@@ -449,7 +449,7 @@ export const bannedDomain = async (domain: string) => {
   });
 
   if (isBanned) {
-    throw new CustomError("URL is containing malware/scam.", 400);
+    throw new CustomError("URL está contendo malware/scam.", 400);
   }
 };
 
@@ -470,6 +470,6 @@ export const bannedHost = async (domain: string) => {
   }
 
   if (isBanned) {
-    throw new CustomError("URL is containing malware/scam.", 400);
+    throw new CustomError("URL está contendo malware/scam.", 400);
   }
 };
