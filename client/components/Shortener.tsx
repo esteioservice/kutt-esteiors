@@ -130,9 +130,9 @@ const Shortener = () => {
 
   const title = !link && (
     <H1 fontSize={[25, 27, 32]} light>
-      encurtador de links{" "}
+      encurtador de links para{" "}
       <Span style={{ borderBottom: "2px dotted #999" }} light>
-        Escoteiros.RS
+        Escoteiros
       </Span>
       .
     </H1>
