@@ -50,7 +50,7 @@ const SettingsApi: FC = () => {
       <Text mb={4}>
         Além deste site, você pode usar a API para criar, excluir e
         obter URLs encurtados. Se
-        {" you're"} não estou familiarizado com API, {"don't"} gerar a chave. NÃO
+        {" você"} não está familiarizado com API, {"não"} gere a chave. NÃO
         compartilhe esta chave no lado do cliente do seu website.{" "}
         <ALink href="https://docs.kutt.it" title="API Docs" target="_blank">
           Leia os documentos da API.
