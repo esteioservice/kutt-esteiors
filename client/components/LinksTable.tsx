@@ -659,7 +659,7 @@ const LinksTable: FC = () => {
             <Tr width={1} justifyContent="center">
               <Td flex="1 1 auto" justifyContent="center">
                 <Text fontSize={18} light>
-                  {links.loading ? "Loading links..." : tableMessage}
+                  {links.loading ? "Carregando links ..." : tableMessage}
                 </Text>
               </Td>
             </Tr>
@@ -688,10 +688,10 @@ const LinksTable: FC = () => {
         {linkToDelete && (
           <>
             <H2 mb={24} textAlign="center" bold>
-              Delete link?
+              Apagar link?
             </H2>
             <Text textAlign="center">
-              Are you sure do you want to delete the link{" "}
+              Tem certeza que deseja apagar o link{" "}
               <Span bold>"{removeProtocol(linkToDelete.link)}"</Span>?
             </Text>
             <Flex justifyContent="center" mt={44}>
@@ -710,11 +710,11 @@ const LinksTable: FC = () => {
                     mr={3}
                     onClick={() => setDeleteModal(-1)}
                   >
-                    Cancel
+                    Cancelar
                   </Button>
                   <Button color="red" ml={3} onClick={onDelete}>
                     <Icon name="trash" stroke="white" mr={2} />
-                    Delete
+                    Apagar
                   </Button>
                 </>
               )}
