@@ -56,7 +56,7 @@ const ProtectedPage: NextPage<Props> = () => {
       ) : (
         <Col width={500} maxWidth="97%">
           <H2 my={3} bold>
-            Protected link
+            Link protegido
           </H2>
           <Text mb={4}>Digite a senha para ser redirecionado ao link.</Text>
           <Flex
@@ -77,7 +77,7 @@ const ProtectedPage: NextPage<Props> = () => {
             />
             <Button type="submit" height={[40, 44]}>
               {loading && <Icon name={"spinner"} stroke="white" mr={2} />}
-              Go
+              OK
             </Button>
           </Flex>
           <Text fontSize={14} color="red" mt={3} normal>
