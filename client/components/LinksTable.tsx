@@ -1,4 +1,3 @@
-import pt from 'date-fns/locales/pt-BR';
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import React, { FC, useState, useEffect } from "react";
@@ -199,7 +198,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
           </Col>
         </Td>
         <Td {...createdFlex} flexDirection="column" alignItems="flex-start">
-          <Text>{formatDistanceToNow(new Date(link.created_at),{locale: pt-BR})} atrás</Text>
+          <Text>{formatDistanceToNow(new Date(link.created_at))} atrás</Text>
           {link.expire_in && (
             <Text fontSize={[13, 14]} color="#888">
               Expira em{" "}
