@@ -1,4 +1,4 @@
-import pt from "date-fns/locales/pt";
+import pt from 'date-fns/locales/pt';
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import React, { FC, useState, useEffect } from "react";
