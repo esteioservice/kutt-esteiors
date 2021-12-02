@@ -25,7 +25,7 @@ export const error: ErrorRequestHandler = (error, req, res, next) => {
     Sentry.captureException(error);
   }
 
-  return res.status(500).json({ error: "An error occurred." });
+  return res.status(500).json({ error: "Um erro ocorreu." });
 };
 
 export const verify = (req, res, next) => {
