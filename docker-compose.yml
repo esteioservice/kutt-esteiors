@@ -2,7 +2,7 @@ version: "3"
 
 services:
   kutt:
-    image: kutt/kutt
+    image: esteioservice/kutt-esteiors
     depends_on:
       - postgres
       - redis

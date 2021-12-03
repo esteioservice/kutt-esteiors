@@ -2,3 +2,5 @@
 .git
 node_modules
 production-server
+docker-compose-dev.yml
+docker-compose.yml

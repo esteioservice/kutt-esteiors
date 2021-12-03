@@ -1,6 +1,7 @@
 .env
 .vscode/
 logs
+docker-compose-dev.yml
 client/.next/
 node_modules/
 client/config.js
