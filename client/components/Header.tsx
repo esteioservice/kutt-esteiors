@@ -111,7 +111,7 @@ const Header: FC = () => {
             }}
           >
             <img src="/images/logo.svg" alt="" />
-            {publicRuntimeConfig.SITE_NAME}
+            
           </a>
         </LogoImage>
         {!isMobile && (
@@ -128,6 +128,23 @@ const Header: FC = () => {
               <Link href="/report">
                 <ALink href="/report" title="Reportar abuso" fontSize={[14, 16]}>
                   Reportar
+                </ALink>
+              </Link>
+            </Li>
+          </Flex>
+          <Flex
+            style={{ listStyle: "none" }}
+            display={["none", "flex"]}
+            alignItems="flex-end"
+            as="ul"
+            mb="3px"
+            m={0}
+            p={0}
+          >
+            <Li>
+              <Link href="/projeto">
+                <ALink href="/report" title="O Projeto" fontSize={[14, 16]}>
+                  O Projeto
                 </ALink>
               </Link>
             </Li>
