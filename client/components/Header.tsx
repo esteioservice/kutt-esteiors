@@ -144,7 +144,7 @@ const Header: FC = () => {
           >
             <Li>
               <Link href="/projeto">
-                <ALink href="/report" title="O Projeto" fontSize={[14, 16]}>
+                <ALink href="/projeto" title="O Projeto" fontSize={[14, 16]}>
                   O Projeto
                 </ALink>
               </Link>
