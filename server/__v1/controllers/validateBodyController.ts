@@ -59,6 +59,7 @@ export const preservedUrls = [
   "images",
   "banned",
   "terms",
+  "projeto",
   "privacy",
   "protected",
   "report",
