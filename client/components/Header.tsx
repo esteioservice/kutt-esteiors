@@ -115,6 +115,7 @@ const Header: FC = () => {
           </a>
         </LogoImage>
         {!isMobile && (
+         <>
           <Flex
             style={{ listStyle: "none" }}
             display={["none", "flex"]}
@@ -149,6 +150,7 @@ const Header: FC = () => {
               </Link>
             </Li>
           </Flex>
+            </>
         )}
       </Flex>
       <RowCenterV
