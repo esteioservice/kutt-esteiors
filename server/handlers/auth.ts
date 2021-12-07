@@ -51,7 +51,7 @@ const authenticate = (
     })(req, res, next);
   };
 
-export const local = authenticate("local", "Login credentials are wrong.");
+export const local = authenticate("local", "As credenciais de login estão erradas.");
 export const jwt = authenticate("jwt", "Unauthorized.");
 export const jwtLoose = authenticate("jwt", "Unauthorized.", false);
 export const apikey = authenticate(
