@@ -16,7 +16,7 @@ import getConfig from "next/config";
 
 const { publicRuntimeConfig } = getConfig();
 
-const ReportPage = () => {
+const ProjetoPage = () => {
   const [formState, { text }] = useFormState<{ url: string }>();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useMessage(5000);
@@ -81,4 +81,4 @@ const ReportPage = () => {
   );
 };
 
-export default ReportPage;
+export default ProjetotPage;
