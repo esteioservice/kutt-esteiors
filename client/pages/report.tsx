@@ -60,7 +60,7 @@ const ReportPage = () => {
           <TextInput
             {...text("url")}
             placeholder={`${publicRuntimeConfig.DEFAULT_DOMAIN}/examplo`}
-            height={[44, 104]}
+            height={[104, 54]}
             width={[1, 1 / 2]}
             flex="0 0 auto"
             mr={3}
