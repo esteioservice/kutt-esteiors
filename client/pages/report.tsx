@@ -46,9 +46,7 @@ const ReportPage = () => {
           Denuncie abusos, malware e links de phishing para o endereço de e-mail abaixo
           ou use o formulário. Tomaremos medidas em breve.
         </Text>
-        <Text mb={4}>
-          {(publicRuntimeConfig.REPORT_EMAIL || "").replace("@", "[at]")}
-        </Text>
+        
         <Text mb={3}>
           <Span bold>URL contendo malware/scam:</Span>
         </Text>
@@ -61,8 +59,8 @@ const ReportPage = () => {
         >
           <TextInput
             {...text("url")}
-            placeholder={`${publicRuntimeConfig.DEFAULT_DOMAIN}/example`}
-            height={[44, 74]}
+            placeholder={`${publicRuntimeConfig.DEFAULT_DOMAIN}/examplo`}
+            height={[44, 104]}
             width={[1, 1 / 2]}
             flex="0 0 auto"
             mr={3}
