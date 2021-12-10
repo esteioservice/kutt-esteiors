@@ -62,7 +62,7 @@ const ReportPage = () => {
           <TextInput
             {...text("url")}
             placeholder={`${publicRuntimeConfig.DEFAULT_DOMAIN}/example`}
-            height={[44, 54]}
+            height={[44, 74]}
             width={[1, 1 / 2]}
             flex="0 0 auto"
             mr={3}
@@ -70,7 +70,7 @@ const ReportPage = () => {
           />
           <Button type="submit" flex="0 0 auto" height={[40, 44]} mt={[3, 0]}>
             {loading && <Icon name={"spinner"} stroke="white" mr={2} />}
-            Send report
+            Enviar
           </Button>
         </Flex>
         <Text fontSize={14} mt={3} color={message.color}>
