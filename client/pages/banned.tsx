@@ -15,7 +15,7 @@ const BannedPage = () => {
     <AppWrapper>
       <Col flex="1 1 100%" alignItems="center">
         <H2 textAlign="center" my={3} normal>
-          Link has been banned and removed because of{" "}
+          O link foi banido e removido por causa de{" "}
           <Span style={{ borderBottom: "1px dotted rgba(0, 0, 0, 0.4)" }} bold>
             malware or scam
           </Span>
@@ -25,7 +25,7 @@ const BannedPage = () => {
           Se você notou um link de malware/scam encurtado por{" "}
           {publicRuntimeConfig.SITE_NAME},{" "}
           <Link href="/report">
-            <ALink title="Send report">envie-nos um relatório</ALink>
+            <ALink title="Envie um Relatório">envie-nos um relatório</ALink>
           </Link>
           .
         </H4>
