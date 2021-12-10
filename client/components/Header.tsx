@@ -126,6 +126,23 @@ const Header: FC = () => {
             p={0}
           >
             <Li>
+              <Link href="/">
+                <ALink href="/" title="Início" fontSize={[14, 16]}>
+                  Início
+                </ALink>
+              </Link>
+            </Li>
+          </Flex>
+            <Flex
+            style={{ listStyle: "none" }}
+            display={["none", "flex"]}
+            alignItems="flex-end"
+            as="ul"
+            mb="3px"
+            m={0}
+            p={0}
+          >
+            <Li>
               <Link href="/report">
                 <ALink href="/report" title="Reportar abuso" fontSize={[14, 16]}>
                   Reportar
